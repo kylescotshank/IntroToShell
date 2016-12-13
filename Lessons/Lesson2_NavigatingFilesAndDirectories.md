@@ -328,3 +328,45 @@ $ ls -F -a
 ./                  .secret/         papers/
 ../                 data/            personal/
 ~~~
+
+`-a` stands for "show all"; it forces `ls` to show us file and directory names that begin with `.`,
+such as `..` (which, if we're in `/Users/kshank`, refers to the `/Users` directory) As you can see, it also displays another special directory that's just called `.`,
+which means "the current working directory". It may seem redundant to have a name for it, but we'll see some uses for it soon.
+
+In addition to the hidden directories `..` and `.`, you also see a directory called `.secret/`. This is a hidden directory. Sometimes you may encounter hidden files (like `.bash_profile`) or hidden directories (like the above) which are demarcated with a '.`. These are usually files and directories that are used to configure different programs on your computer. The prefix `.` is used to prevent these configuration files from cluttering the terminal when a standard `ls` command is used.
+
+***
+
+These then, are the basic commands for navigating the filesystem on your computer:
+`pwd`, `ls` and `cd`.  Let's explore some variations on those commands.  What happens
+if you type `cd` on its own, without giving a directory?  
+
+~~~
+$ cd
+~~~
+
+How can you check what happened?  `pwd` gives us the answer! 
+
+~~~
+$ pwd
+~~~
+~~~
+/Users/kshank
+~~~
+
+It turns out that `cd` without an argument will return you to your home directory,
+which is great if you've gotten lost in your own filesystem.  
+
+Let's try returning to the `data` directory from before.  Last time, we used
+three commands, but we can actually string together the list of directories
+to move to `data` in one step:
+
+~~~
+$ cd Users/kshank/Desktop/data
+~~~
+
+Check that we've moved to the right place by running `pwd` and `ls -F`.  
+
+If we want to move up one level from the data directory, we could use `cd ..`.  But
+there is another way to move to any directory, regardless of your
+current location.  
