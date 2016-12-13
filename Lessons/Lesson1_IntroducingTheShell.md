@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="IntroToShell/Images/ItsAUnixSystem.jpg"/>
+  <img src="https://github.com/kylescotshank/IntroToShell/blob/master/Images/ItsAUnixSystem.jpg"/>
  </kbd>
  </p>
  <p align="center"
