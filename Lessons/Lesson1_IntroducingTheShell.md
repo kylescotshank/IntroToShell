@@ -1,5 +1,14 @@
 # Introducing the Shell
 
+<p align="center">
+<kbd>
+  <img src="Images/ItsAUnixSystem.jpeg"/>
+ </kbd>
+ <p>
+ <p align="center"
+  <em>Note: That's totally not a Unix system.</em>
+</p>
+
 At a high level, computers do four things:
 
 -   run programs
