@@ -137,3 +137,5 @@ she will be able to use it again whenever she collects more data.
   1. A shell is a program whose primary purpose is to read commands and run other programs.
   2. The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.
   3. The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
+
+[Next: Lesson 2 - Navigating Files and Directories](/Lesson2_NavigatingFilesAndDirectories.md)
