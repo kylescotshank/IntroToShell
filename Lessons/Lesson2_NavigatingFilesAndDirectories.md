@@ -20,6 +20,18 @@ The command's output is the ID of the current user, i.e., it shows us who the sh
 $ whoami
 ~~~
 
+On my own machine, the response is:
+
 ~~~
 kshank
+$
 ~~~
+
+Pretty neat! What happened here? 
+
+When we typed `whoami` the shell performed the following series of commands:
+
+1.  found a program called `whoami`,
+2.  ran that program,
+3.  displayed that program's output
+4.  displayed a new prompt to tell us that it's ready for more commands.
