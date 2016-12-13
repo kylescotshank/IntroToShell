@@ -94,8 +94,9 @@ $ ls -F
 ~~~
 
 ~~~
-Applications/ Documents/    Library/      Music/        Public/
-Desktop/      Downloads/    Movies/       Pictures/
+data
+papers
+personal
 ~~~
 
 `ls` has lots of other options. To find out what they are, we can type:
@@ -242,10 +243,77 @@ $ ls -F Desktop
 ~~~
 
 ~~~
-Papers/ Script Collection/
-Current Analysis Projects/  analyze_gene_counts.R
-Motifs/ Notes/
+data/
+papers/
+personal/
 ~~~
 
 Your output should be a list of all the files and sub-directories on your Desktop. Take a look at your Desktop to confirm that
 your output is accurate.  
+
+As you may now see, using a bash shell is strongly dependent on the idea that your files are organized in an hierarchical file system.  
+Organizing things hierarchically in this way helps us keep track of our work: it's possible to put hundreds of files in our home directory, just as it's possible to pile hundreds of printed papers on our desk, but it's a self-defeating strategy.
+
+## Changing Directories
+
+We now know how to look at the contents of a folder, we can learn how to change directories. 
+
+The command to change locations is `cd` followed by a directory name to change our working directory. `cd` stands for "change directory", which is a bit misleading: the command doesn't change the directory, it changes the shell's idea of what directory we are in.
+
+Let's say we want to move to the `data/` directory we saw above.  We can use the following series of commands to get there:
+
+~~~
+$ cd Desktop
+$ cd data
+~~~
+
+These commands will move us from our home directory onto our Desktop, then into the `data` directory. `cd` doesn't print anything, but if we run `pwd` after it, we can see that we are now.
+
+~~~
+$ pwd
+~~~
+
+~~~
+/Users/kshank/Desktop/data
+~~~
+
+And now we can take a peek around:
+
+~~~
+$ ls -F
+~~~
+
+~~~
+amino-acids.txt   elements/     pdb/          salmon.txt
+animals.txt       morse.txt     planets.txt     sunspot.txt
+~~~
+
+Great! You can see that the directory contains several files and sub-directories. Now that we know how to go **down** a directory, how do we go **up**? We might first try the following:
+
+~~~
+cd Desktop
+~~~
+
+~~~
+-bash: cd: data: No such file or directory
+~~~
+
+Huh! We get an error.  Why is this?  
+
+With our methods so far, `cd` can only see sub-directories inside your current directory. It thus looked for a directory called `Desktop` inside of `data`, which doesn't exist.  There are different ways to see directories above your current location; we'll start with the simplest.  
+
+There is a shortcut in the shell to move up one directory level that looks like this:
+
+~~~
+$ cd ..
+~~~
+
+`..` is a special directory name meaning "the directory containing this one", or more succinctly, the **parent** of the current directory. Sure enough, if we run `pwd` after running `cd ..`, we're back in `/Users/kshank/Desktop/`:
+
+~~~
+$ pwd
+~~~
+
+~~~
+/Users/kshank/Desktop
+~~~
