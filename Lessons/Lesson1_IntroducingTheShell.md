@@ -2,12 +2,13 @@
 
 <p align="center">
 <kbd>
-  <img src="Images/ItsAUnixSystemjpg"/>
+  <img src="Images/ItsAUnixSystem.jpg"/>
  </kbd>
  </p>
  <p align="center"
-  <em>Note: That's totally not a Unix system.</em>
+  <em><b>Note</b>: That's totally not a Unix system. Sorry, Jurassic Park.</em>
 </p>
+
 
 At a high level, computers do four things:
 
