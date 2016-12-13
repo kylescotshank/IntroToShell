@@ -12,8 +12,9 @@ To begin, we will guide you through the basics of file systems and the shell. If
 
 ## Lessons
 
-  1. [Introduction The Shell](Lessons/Lesson1_IntroducingTheShell.md)
+  1. [Introducing The Shell](Lessons/Lesson1_IntroducingTheShell.md)
+  2. [Navigating Files and Directories](Lessons/Lesson2_NavigatingFilesAndDirectories.md)
 
 ## License
 
-These traing materials are modified versions of those created by the [Software Carpentry](https://software-carpentry.org) foundation. We provide the license for their use [here](License.md)
+These traing materials are modified versions of those created by the [Software Carpentry](https://software-carpentry.org) foundation. We provide the license for their use [here](License.md).
