@@ -12,5 +12,5 @@ To begin, we will guide you through the basics of file systems and the shell. If
 
 ## Lessons
 
-  1. [Introduction The Shell](Lessons/Lesson1_IntroducTheShell.md)
+  1. [Introduction The Shell](Lessons/Lesson1_IntroducingTheShell.md)
 
