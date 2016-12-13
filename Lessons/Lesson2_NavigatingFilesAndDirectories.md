@@ -56,7 +56,7 @@ To understand what a "home directory" is, let's have a look at how the file syst
 
 On Nelle's computer, the filesystem looks like this:
 
-![The File System](../Images/filesystem.svg)
+![The File System](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/filesystem.svg)
 
 At the top is the **root directory** that holds everything else. We refer to it using a slash character `/` on its own; this is the leading slash in `/Users/nelle`.
 
