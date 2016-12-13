@@ -232,3 +232,20 @@ For more information on how to use `ls` we can type `man ls`. `man` is the Unix 
 To navigate through the `man` pages, you may use the up and down arrow keys to move line-by-line, or try the "b" and spacebar keys to skip up and down by full page. Quit the `man` pages by typing "q".
 
 Here, we can see that our home directory contains mostly **sub-directories**. Any names in your output that don't have trailing slashes, are plain old **files**. And note that there is a space between `ls` and `-F`: without it, the shell thinks we're trying to run a command called `ls-F`, which doesn't exist.
+
+We can also use `ls` to see the contents of a different directory.  Let's take a look at our `Desktop` directory by running `ls -F Desktop`, i.e.,
+the command `ls` with the **arguments** `-F` and `Desktop`. The second argument --- the one *without* a leading dash --- tells `ls` that
+we want a listing of something other than our current working directory:
+
+~~~
+$ ls -F Desktop
+~~~
+
+~~~
+Papers/ Script Collection/
+Current Analysis Projects/  analyze_gene_counts.R
+Motifs/ Notes/
+~~~
+
+Your output should be a list of all the files and sub-directories on your Desktop. Take a look at your Desktop to confirm that
+your output is accurate.  
