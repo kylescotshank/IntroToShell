@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="Images/ItsAUnixSystem.jpeg"/>
+  <img src="Images/ItsAUnixSystemjpg"/>
  </kbd>
  <p>
  <p align="center"
