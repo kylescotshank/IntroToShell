@@ -48,7 +48,7 @@ $ pwd
 /Users/kshank
 ~~~
 
-### Home Directory Variation
+## Home Directory
 
 The home directory path will look different on different operating systems. On Linux it may look like `/home/kshank`, and on Windows it will be similar to `C:\Documents and Settings\nkshank` or `C:\Users\kshank`. (Note that it may look slightly different for different versions of Windows.) In future examples, we've used Mac output as the default - Linux and Windows output may differ slightly, but should be generally similar.  
 
@@ -62,10 +62,25 @@ On Nelle's computer, the filesystem looks like this:
  </kbd>
  </p>
 
-At the top is the **root directory** that holds everything else. We refer to it using a slash character `/` on its own; this is the leading slash in `/Users/nelle`.
+At the top is the **root directory** that holds everything else. We refer to it using a slash character `/` on its own.
 
 Inside that directory are several other directories: `bin` (which is where some built-in programs are stored), `data` (for miscellaneous data files), `Users` (where users' personal directories are located), `tmp` (for temporary files that don't need to be stored long-term), and so on.  
 
-We know that our current working directory `/Users/nelle` is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
+We know that our current working directory -- in this example, `/Users/nelle` -- is stored inside `/Users` because `/Users` is the first part of its name. Similarly, we know that `/Users` is stored inside the root directory `/` because its name begins with `/`.
 
+Notice that there are two meanings for the `/` character. When it appears at the front of a file or directory name, it refers to the root directory. When it appears *inside* a name, it's just a separator.
 
+## Listing Files
+
+Now let's learn the command that will let us see the contents of our own filesystem.  We can see what's in our home directory by running `ls`, which stands for "listing":
+
+~~~
+$ ls
+~~~
+
+The output of which looks like this:
+
+~~~
+Applications Documents    Library      Music        Public
+Desktop      Downloads    Movies       Pictures
+~~~
