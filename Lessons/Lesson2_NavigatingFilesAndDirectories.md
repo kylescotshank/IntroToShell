@@ -78,9 +78,22 @@ Now let's learn the command that will let us see the contents of our own filesys
 $ ls
 ~~~
 
-The output of which looks like this:
+The output of which (on my machine) looks like this:
 
 ~~~
 Applications Documents    Library      Music        Public
 Desktop      Downloads    Movies       Pictures
+~~~
+
+*Note*: Remember =  your results may be slightly different depending on your operating system and how you have customized your filesystem.
+
+`ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We can make its output more comprehensible by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
+
+~~~
+$ ls -F
+~~~
+
+~~~
+Applications/ Documents/    Library/      Music/        Public/
+Desktop/      Downloads/    Movies/       Pictures/
 ~~~
