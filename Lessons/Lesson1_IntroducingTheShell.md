@@ -14,8 +14,8 @@ At a high level, computers do four things:
 
 -   run programs
 -   store data
--   communicate with each other
--   and interact with us
+-   interact with each other
+-   interact with humans
 
 They can do the last of these in many different ways,
 including direct brain-computer and speech interfaces.
@@ -79,11 +79,13 @@ not only makes us more productive, but also improves the reproducibility of our 
 allowing us to repeat them with few simple commands.
 In addition, the command line is often the easiest way to interact with remote machines and supercomputers.
 Familiarity with the shell is near essential to run a variety of specialized tools and resources
-including high-performance computing systems.
+including high-performance computing systems and the most commonly found tools in bioinformatics.
 As clusters and cloud computing systems become more popular for scientific data crunching,
 being able to interact with them is becoming a necessary skill.
 We can build on the command-line skills covered here
 to tackle a wide range of scientific questions and computational challenges.
+
+To motivate our study of the shell, we'll take a look at an example motivating problem. 
 
 ## Nelle's Pipeline: Starting Point
 
@@ -129,3 +131,9 @@ so that her computer can work 24 hours a day while she writes her paper.
 As a bonus,
 once she has put a processing pipeline together,
 she will be able to use it again whenever she collects more data.
+
+## Key Points to Remember
+
+  1. A shell is a program whose primary purpose is to read commands and run other programs.
+  2. The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.
+  3. The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
