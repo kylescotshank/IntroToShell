@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="Images/ItsAUnixSystem.jpg"/>
+  <img src="IntroToShell/Images/ItsAUnixSystem.jpg"/>
  </kbd>
  </p>
  <p align="center"
