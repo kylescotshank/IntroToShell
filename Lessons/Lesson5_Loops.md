@@ -325,3 +325,5 @@ command.  That's useful more often than you might expect: after
 `bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
 `less !$` to look at the file `stats-NENE01729B.txt`, which is
 quicker than doing up-arrow and editing the command-line.
+
+[Next: Lesson 5 - Loops](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson6_Scripts.md)
