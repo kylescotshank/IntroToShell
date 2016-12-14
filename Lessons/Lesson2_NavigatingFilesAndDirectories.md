@@ -460,3 +460,5 @@ Starting from `/Users/amanda/data/`, which of the following commands could Amand
   7. Yes: unnecessarily complicated, but correct.
   8. Yes: shortcut to go back to the user's home directory.
   9. Yes: goes up one level.
+
+[Next: Lesson 3 - Working With Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson3_WorkingWithFilesAndDirectories.md)
