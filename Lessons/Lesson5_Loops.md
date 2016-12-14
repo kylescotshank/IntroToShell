@@ -188,4 +188,4 @@ do
 done
 ~~~
 
-![For Loop in Action](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/shell_script_for_loop_flow_chart.svg)
+![For Loop in Action](http://swcarpentry.github.io/shell-novice/fig/shell_script_for_loop_flow_chart.svg)
