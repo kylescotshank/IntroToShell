@@ -76,7 +76,7 @@ tips for the names of your files from now on.
 
     Commands treat names starting with `-` as options.
 
- 3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
+  3. Stick with letters, numbers, `.` (period), `-` (dash) and `_` (underscore).
 
     Many other characters have a special meaning on the command line
     that we will learn during this lesson. Some will only make your command not work,
