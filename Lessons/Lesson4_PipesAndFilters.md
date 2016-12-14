@@ -397,4 +397,4 @@ the `*` matches any number of characters;
 the expression `[AB]` matches either an 'A' or a 'B',
 so this matches all the valid data files she has.
 
-
+[Next: Lesson 5 - Loops](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson5_Loops.md)
