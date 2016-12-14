@@ -14,6 +14,8 @@ To begin, we will guide you through the basics of file systems and the shell. If
 
   1. [Introducing The Shell](Lessons/Lesson1_IntroducingTheShell.md)
   2. [Navigating Files and Directories](Lessons/Lesson2_NavigatingFilesAndDirectories.md)
+  3. [Working with Files and Directories](Lessons/Lesson3_WorkingWithFilesAndDirectories.md)
+  4. [Pipes and Filters](Lessons/Lesson4_PipesAndFilters.md)
 
 ## License
 
