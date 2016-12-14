@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="https://github.com/kylescotshank/IntroToShell/blob/master/Images/loops.jpg"/>
+  <img src="../Images/loops.jpg"/>
  </kbd>
  </p>
  <p align="center"
@@ -326,4 +326,4 @@ command.  That's useful more often than you might expect: after
 `less !$` to look at the file `stats-NENE01729B.txt`, which is
 quicker than doing up-arrow and editing the command-line.
 
-[Next: Lesson 6 - Scripts](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson6_Scripts.md)
+[Next: Lesson 6 - Scripts](https://github.com/MaineINBRE/IntroToShell/blob/master/Lessons/Lesson6_Scripts.md)
