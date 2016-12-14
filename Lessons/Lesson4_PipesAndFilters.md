@@ -147,3 +147,167 @@ which you use with `$ less lengths.txt`.
 This displays a screenful of the file, and then stops.
 You can go forward one screenful by pressing the spacebar,
 or back one by pressing `b`.  Press `q` to quit.
+
+Now let's use the `sort` command to sort its contents.
+We will also use the `-n` flag to specify that the sort is
+numerical instead of alphabetical.
+This does *not* change the file;
+instead, it sends the sorted result to the screen:
+
+~~~
+$ sort -n lengths.txt
+~~~
+
+~~~
+  9  methane.pdb
+ 12  ethane.pdb
+ 15  propane.pdb
+ 20  cubane.pdb
+ 21  pentane.pdb
+ 30  octane.pdb
+107  total
+~~~
+
+We can put the sorted list of lines in another temporary file called `sorted-lengths.txt`
+by putting `> sorted-lengths.txt` after the command,
+just as we used `> lengths.txt` to put the output of `wc` into `lengths.txt`.
+Once we've done that,
+we can run another command called `head` to get the first few lines in `sorted-lengths.txt`:
+
+~~~
+$ sort -n lengths.txt > sorted-lengths.txt
+$ head -n 1 sorted-lengths.txt
+~~~
+
+~~~
+  9  methane.pdb
+~~~
+
+Using the parameter `-n 1` with `head` tells it that
+we only want the first line of the file;
+`-n 20` would get the first 20,
+and so on.
+Since `sorted-lengths.txt` contains the lengths of our files ordered from least to greatest,
+the output of `head` must be the file with the fewest lines.
+
+## Pipes
+
+If you think this is confusing,
+you're in good company:
+even once you understand what `wc`, `sort`, and `head` do,
+all those intermediate files make it hard to follow what's going on.
+We can make it easier to understand by running `sort` and `head` together:
+
+~~~
+$ sort -n lengths.txt | head -n 1
+~~~
+
+~~~
+  9  methane.pdb
+~~~
+
+The vertical bar, `|`, between the two commands is called a **pipe**.
+It tells the shell that we want to use
+the output of the command on the left
+as the input to the command on the right.
+The computer might create a temporary file if it needs to,
+or copy data from one program to the other in memory,
+or something else entirely;
+we don't have to know or care.
+
+Nothing prevents us from chaining pipes consecutively.
+That is, we can for example send the output of `wc` directly to `sort`,
+and then the resulting output to `head`.
+Thus we first use a pipe to send the output of `wc` to `sort`:
+
+~~~
+$ wc -l *.pdb | sort -n
+~~~
+
+~~~
+   9 methane.pdb
+  12 ethane.pdb
+  15 propane.pdb
+  20 cubane.pdb
+  21 pentane.pdb
+  30 octane.pdb
+ 107 total
+~~~
+
+And now we send the output ot this pipe, through another pipe, to `head`, so that the full pipeline becomes:
+
+~~~
+$ wc -l *.pdb | sort -n | head -n 1
+~~~
+
+~~~
+   9  methane.pdb
+~~~
+
+This is exactly like a mathematician nesting functions like *log(3x)*
+and saying "the log of three times *x*".
+In our case,
+the calculation is "head of sort of line count of `*.pdb`".
+
+Here's what actually happens behind the scenes when we create a pipe.
+When a computer runs a program --- any program --- it creates a **process**
+in memory to hold the program's software and its current state.
+Every process has an input channel called **standard input**.
+(By this point, you may be surprised that the name is so memorable, but don't worry:
+most Unix programmers call it "stdin").
+Every process also has a default output channel called **standard output**
+(or "stdout"). A third output channel called **standard error** (stderr) also 
+exists. This channel is typically used for error or diagnostic messages, and it
+allows a user to pipe the output of one program into another while still receiving 
+error messages in the terminal. 
+
+The shell is actually just another program.
+Under normal circumstances,
+whatever we type on the keyboard is sent to the shell on its standard input,
+and whatever it produces on standard output is displayed on our screen.
+When we tell the shell to run a program,
+it creates a new process
+and temporarily sends whatever we type on our keyboard to that process's standard input,
+and whatever the process sends to standard output to the screen.
+
+Here's what happens when we run `wc -l *.pdb > lengths.txt`.
+The shell starts by telling the computer to create a new process to run the `wc` program.
+Since we've provided some filenames as parameters,
+`wc` reads from them instead of from standard input.
+And since we've used `>` to redirect output to a file,
+the shell connects the process's standard output to that file.
+
+If we run `wc -l *.pdb | sort -n` instead,
+the shell creates two processes
+(one for each process in the pipe)
+so that `wc` and `sort` run simultaneously.
+The standard output of `wc` is fed directly to the standard input of `sort`;
+since there's no redirection with `>`,
+`sort`'s output goes to the screen.
+And if we run `wc -l *.pdb | sort -n | head -n 1`,
+we get three processes with data flowing from the files,
+through `wc` to `sort`,
+and from `sort` through `head` to the screen.
+
+![Redirects and Pipes](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/redirects-and-pipes.png?raw=true)
+
+This simple idea is why Unix has been so successful.
+Instead of creating enormous programs that try to do many different things,
+Unix programmers focus on creating lots of simple tools that each do one job well,
+and that work well with each other.
+This programming model is called "pipes and filters".
+We've already seen pipes;
+a **filter** is a program like `wc` or `sort`
+that transforms a stream of input into a stream of output.
+Almost all of the standard Unix tools can work this way:
+unless told to do otherwise,
+they read from standard input,
+do something with what they've read,
+and write to standard output.
+
+The key is that any program that reads lines of text from standard input
+and writes lines of text to standard output
+can be combined with every other program that behaves this way as well.
+You can *and should* write your programs this way
+so that you and other people can put those programs into pipes to multiply their power.
+
