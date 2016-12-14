@@ -1,5 +1,13 @@
 # Working with Files and Directories
 
+<p align="center">
+<kbd>
+  <img src="https://github.com/kylescotshank/IntroToShell/blob/master/Images/linux-from-scratch.jpg"/>
+</kbd>
+</p>
+
+
+
 We now know how to explore files and directories,
 but how do we create them in the first place?
 Let's go back to our `data` directory on the Desktop
