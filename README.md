@@ -18,6 +18,7 @@ To begin, we will guide you through the basics of file systems and the shell. If
   4. [Pipes and Filters](Lessons/Lesson4_PipesAndFilters.md)
   5. [Loops](Lessons/Lesson5_Loops.md)
   6. [Scripts](Lessons/Lesson6_Scripts.md)
+  7. [Finding Things](Lessons/FindingThings.md)
 
 ## License
 
