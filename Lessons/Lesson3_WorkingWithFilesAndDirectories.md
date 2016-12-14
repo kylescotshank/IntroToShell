@@ -319,4 +319,4 @@ correct the mistake, which of the following commands could you use to do so?
   3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names cannot be created.
   4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names cannot be created.
 
-[Next: Lesson 2 - Navigating Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson2_NavigatingFilesAndDirectories.md)
+[Next: Lesson 4 - Pipes and Filters](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson4_PipesAndFilters.md)
