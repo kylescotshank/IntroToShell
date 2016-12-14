@@ -189,3 +189,139 @@ done
 ~~~
 
 ![For Loop in Action](http://swcarpentry.github.io/shell-novice/fig/shell_script_for_loop_flow_chart.svg)
+
+## Nelle's Pipeline: Processing Files
+
+Nelle is now ready to process her data files.
+Since she's still learning how to use the shell,
+she decides to build up the required commands in stages.
+Her first step is to make sure that she can select the right files --- remember,
+these are ones whose names end in 'A' or 'B', rather than 'Z'. Starting from her home directory, Nelle types:
+
+~~~
+$ cd north-pacific-gyre/2012-07-03
+$ for datafile in *[AB].txt
+> do
+>     echo $datafile
+> done
+~~~
+
+~~~
+NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+NENE02043A.txt
+NENE02043B.txt
+~~~
+
+Her next step is to decide
+what to call the files that the `goostats` analysis program will create.
+Prefixing each input file's name with "stats" seems simple,
+so she modifies her loop to do that:
+
+~~~
+$ for datafile in *[AB].txt
+> do
+>     echo $datafile stats-$datafile
+> done
+~~~
+
+~~~
+NENE01729A.txt stats-NENE01729A.txt
+NENE01729B.txt stats-NENE01729B.txt
+NENE01736A.txt stats-NENE01736A.txt
+...
+NENE02043A.txt stats-NENE02043A.txt
+NENE02043B.txt stats-NENE02043B.txt
+~~~
+
+She hasn't actually run `goostats` yet,
+but now she's sure she can select the right files and generate the right output filenames.
+
+Typing in commands over and over again is becoming tedious,
+though,
+and Nelle is worried about making mistakes,
+so instead of re-entering her loop,
+she presses the up arrow.
+In response,
+the shell redisplays the whole loop on one line
+(using semi-colons to separate the pieces):
+
+~~~
+$ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
+~~~
+
+Using the left arrow key,
+Nelle backs up and changes the command `echo` to `bash goostats`:
+
+~~~
+$ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
+~~~
+
+When she presses Enter,
+the shell runs the modified command.
+However, nothing appears to happen --- there is no output.
+After a moment, Nelle realizes that since her script doesn't print anything to the screen any longer,
+she has no idea whether it is running, much less how quickly.
+She kills the running command by typing `Ctrl-C`,
+uses up-arrow to repeat the command,
+and edits it to read:
+
+~~~
+$ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
+~~~
+
+When she runs her program now,
+it produces one line of output every five seconds or so:
+
+~~~
+NENE01729A.txt
+NENE01729B.txt
+NENE01736A.txt
+...
+~~~
+
+1518 times 5 seconds,
+divided by 60,
+tells her that her script will take about two hours to run.
+As a final check,
+she opens another terminal window,
+goes into `north-pacific-gyre/2012-07-03`,
+and uses `cat stats-NENE01729B.txt`
+to examine one of the output files.
+It looks good,
+so she decides to get some coffee and catch up on her reading.
+
+## Those Who Know History Can Choose to Repeat It
+
+Another way to repeat previous work is to use the `history` command to
+get a list of the last few hundred commands that have been executed, and
+then to use `!123` (where "123" is replaced by the command number) to
+repeat one of those commands. For example, if Nelle types this:
+
+~~~
+$ history | tail -n 5
+~~~
+
+~~~
+  456  ls -l NENE0*.txt
+  457  rm stats-NENE01729B.txt.txt
+  458  bash goostats NENE01729B.txt stats-NENE01729B.txt
+  459  ls -l NENE0*.txt
+  460  history
+~~~
+
+then she can re-run `goostats` on `NENE01729B.txt` simply by typing
+`!458`.
+
+## Other History Commands
+
+There are a number of other shortcut commands for getting at the history.
+Two of the more useful are `!!`, which retrieves the immediately
+preceding command (you may or may not find this more convenient than
+plain up-arrow), and `!$`, which retrieves the last word of the last
+command.  That's useful more often than you might expect: after
+`bash goostats NENE01729B.txt stats-NENE01729B.txt`, you can type
+`less !$` to look at the file `stats-NENE01729B.txt`, which is
+quicker than doing up-arrow and editing the command-line.
