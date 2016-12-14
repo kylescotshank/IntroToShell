@@ -294,4 +294,4 @@ she could modify her script to check for command-line parameters,
 and use `*[AB].txt` if none were provided.
 Of course, this introduces another tradeoff between flexibility and complexity.
 
-[Next: Lesson 7 - Finding Things](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson7_FindingThings.md)
+[Next: Lesson 7 - Finding Things](https://github.com/MaineINBRE/IntroToShell/blob/master/Lessons/Lesson7_FindingThings.md)
