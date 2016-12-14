@@ -85,5 +85,46 @@ tips for the names of your files from now on.
  If you need to refer to names of files or directories that have whitespace
  or another non-alphanumeric character, you should surround the name in quotes (`""`).
 
+***
+
+Let's change our working directory to `thesis` using `cd`,
+then run a text editor called Nano to create a file called `draft.txt`:
+
+~~~
+$ cd thesis
+$ nano draft.txt
+~~~
+
+## Which Editor?
+
+When we say, "`nano` is a text editor," we really do mean "text": it can
+only work with plain character data, not tables, images, or any other
+human-friendly media. We use it in examples because almost anyone can
+drive it anywhere without training, but please use something more
+powerful for real work. On Unix systems (such as Linux and Mac OS X),
+many programmers use [Emacs](http://www.gnu.org/software/emacs/) or
+[Vim](http://www.vim.org/) (both of which are completely unintuitive,
+even by Unix standards), or a graphical editor such as
+[Gedit](http://projects.gnome.org/gedit/). On Windows, you may wish to
+use [Notepad++](http://notepad-plus-plus.org/).  I recommend [Sublime Text](https://www.sublimetext.com) if you plan on becoming a code junky.
+Windows also has a built-in editor called `notepad` that can be run from the command line in the same
+way as `nano` for the purposes of this lesson.  
+
+No matter what editor you use, you will need to know where it searches
+for and saves files. If you start it from the shell, it will (probably)
+use your current working directory as its default location. If you use
+your computer's start menu, it may want to save files in your desktop or
+documents directory instead. You can change this by navigating to
+another directory the first time you "Save As..."
+
+***
+
+Let's type in a few lines of text.
+Once we're happy with our text, we can press `Ctrl-O` (press the Ctrl or Control key and, while
+holding it down, press the O key) to write our data to disk
+(we'll be asked what file we want to save this to:
+press Return to accept the suggested default of `draft.txt`).
+
+![Nano in Action](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/nano-screenshot.png?raw=true)
 
 [Next: Lesson 2 - Navigating Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson2_NavigatingFilesAndDirectories.md)
