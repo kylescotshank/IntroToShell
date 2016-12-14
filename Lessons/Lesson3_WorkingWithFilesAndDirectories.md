@@ -127,4 +127,196 @@ press Return to accept the suggested default of `draft.txt`).
 
 ![Nano in Action](https://github.com/swcarpentry/shell-novice/blob/gh-pages/fig/nano-screenshot.png?raw=true)
 
+Once our file is saved, we can use `Ctrl-X` to quit the editor and
+return to the shell.
+
+`nano` doesn't leave any output on the screen after it exits,
+but `ls` now shows that we have created a file called `draft.txt`:
+
+~~~
+$ ls
+~~~
+
+~~~
+draft.txt
+~~~
+
+Let's tidy up by running `rm draft.txt`:
+
+~~~
+$ rm draft.txt
+~~~
+
+This command removes files (`rm` is short for "remove").
+If we run `ls` again,
+its output is empty once more,
+which tells us that our file is gone:
+
+~~~
+$ ls
+~~~
+
+## Deleting Is Forever
+
+The Unix shell doesn't have a trash bin that we can recover deleted
+files from (though most graphical interfaces to Unix do).  Instead,
+when we delete files, they are unhooked from the file system so that
+their storage space on disk can be recycled. Tools for finding and
+recovering deleted files do exist, but there's no guarantee they'll
+work in any particular situation, since the computer may recycle the
+file's disk space right away.
+
+Let's up a level and try to emove the entire `thesis` directory using `rm thesis`:
+~~~
+$ cd ..
+$ rm thesis
+~~~
+
+~~~
+rm: cannot remove `thesis': Is a directory
+~~~
+
+We got an error message! 
+
+This happens because `rm` by default only works on files, not directories.
+
+To really get rid of `thesis` we must also delete the file `draft.txt`. We can do this with the [recursive](https://en.wikipedia.org/wiki/Recursion) option for `rm`:
+
+~~~
+$ rm -r thesis
+~~~
+
+## With Great Power Comes Great Responsibility
+
+Removing the files in a directory recursively can be very dangerous
+operation. If we're concerned about what we might be deleting we can
+add the "interactive" flag `-i` to `rm` which will ask us for confirmation
+before each step
+
+~~~
+$ rm -r -i thesis
+rm: descend into directory ‘thesis’? y
+rm: remove regular file ‘thesis/draft.txt’? y
+rm: remove directory ‘thesis’? y
+~~~
+
+This removes everything in the directory, then the directory itself, asking
+at each step for you to confirm the deletion.
+
+You know, `draft.txt` isn't a particularly informative name,
+so let's change the file's name using `mv`,
+which is short for "move":
+
+~~~
+$ mv thesis/draft.txt thesis/quotes.txt
+~~~
+
+The first parameter tells `mv` what we're "moving",
+while the second is where it's to go.
+In this case,
+we're moving `thesis/draft.txt` to `thesis/quotes.txt`,
+which has the same effect as renaming the file.
+Sure enough,
+`ls` shows us that `thesis` now contains one file called `quotes.txt`:
+
+~~~
+$ ls thesis
+~~~
+
+~~~
+quotes.txt
+~~~
+
+One has to be careful when specifying the target file name, since `mv` will
+silently overwrite any existing file with the same name, which could
+lead to data loss. An additional flag, `mv -i` (or `mv --interactive`),
+can be used to make `mv` ask you for confirmation before overwriting.
+
+Just for the sake of consistency,
+`mv` also works on directories --- there is no separate `mvdir` command.
+
+Let's move `quotes.txt` into the current working directory.
+We use `mv` once again,
+but this time we'll just use the name of a directory as the second parameter
+to tell `mv` that we want to keep the filename,
+but put the file somewhere new.
+(This is why the command is called "move".)
+In this case,
+the directory name we use is the special directory name `.` that we mentioned earlier.
+
+~~~
+$ mv thesis/quotes.txt .
+~~~
+
+The effect is to move the file from the directory it was in to the current working directory.
+`ls` now shows us that `thesis` is empty:
+
+~~~
+$ ls thesis
+~~~
+
+Further,
+`ls` with a filename or directory name as a parameter only lists that file or directory.
+We can use this to see that `quotes.txt` is still in our current directory:
+
+~~~
+$ ls quotes.txt
+~~~
+
+~~~
+quotes.txt
+~~~
+
+The `cp` command works very much like `mv`,
+except it copies a file instead of moving it.
+We can check that it did the right thing using `ls`
+with two paths as parameters --- like most Unix commands,
+`ls` can be given multiple paths at once:
+
+~~~
+$ cp quotes.txt thesis/quotations.txt
+$ ls quotes.txt thesis/quotations.txt
+~~~
+
+~~~
+quotes.txt   thesis/quotations.txt
+~~~
+
+To prove that we made a copy,
+let's delete the `quotes.txt` file in the current directory
+and then run that same `ls` again.
+
+~~~
+$ rm quotes.txt
+$ ls quotes.txt thesis/quotations.txt
+~~~
+
+~~~
+ls: cannot access quotes.txt: No such file or directory
+thesis/quotations.txt
+~~~
+
+This time it tells us that it can't find `quotes.txt` in the current directory,
+but it does find the copy in `thesis` that we didn't delete.
+
+## CHALLENGE QUESTIONS
+
+Suppose that you created a `.txt` file in your current directory to contain a list of the
+statistical tests you will need to do to analyze your data, and named it: `statstics.txt`
+
+After creating and saving this file you realize you misspelled the filename! You want to
+correct the mistake, which of the following commands could you use to do so?
+
+  1. `cp statstics.txt statistics.txt`
+  2. `mv statstics.txt statistics.txt`
+  3. `mv statstics.txt .`
+  4. `cp statstics.txt .`
+
+## CHALLENGE ANSWERS
+
+  1. No.  While this would create a file with the correct name, the incorrectly named file still exists in the directory and would need to be deleted.
+  2. Yes, this would work to rename the file.
+  3. No, the period(.) indicates where to move the file, but does not provide a new file name; identical file names cannot be created.
+  4. No, the period(.) indicates where to copy the file, but does not provide a new file name; identical file names cannot be created.
+
 [Next: Lesson 2 - Navigating Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson2_NavigatingFilesAndDirectories.md)
