@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="https://github.com/MaineINBREIntroToShell/blob/master/Images/ItsAUnixSystem.jpg"/>
+  <img src="../Images/ItsAUnixSystem.jpg"/>
  </kbd>
  </p>
  <p align="center"
