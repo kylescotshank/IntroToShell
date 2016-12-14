@@ -311,3 +311,90 @@ can be combined with every other program that behaves this way as well.
 You can *and should* write your programs this way
 so that you and other people can put those programs into pipes to multiply their power.
 
+## Nelle's Pipeline: Checking Files
+
+Nelle has run her samples through the assay machines
+and created 1520 files in the `north-pacific-gyre/2012-07-03` directory described earlier.
+As a quick sanity check, starting from her home directory, Nelle types:
+
+~~~
+$ cd north-pacific-gyre/2012-07-03
+$ wc -l *.txt
+~~~
+
+The output is 1520 lines that look like this:
+
+~~~
+300 NENE01729A.txt
+300 NENE01729B.txt
+300 NENE01736A.txt
+300 NENE01751A.txt
+300 NENE01751B.txt
+300 NENE01812A.txt
+... ...
+~~~
+
+Now she types this:
+
+~~~
+$ wc -l *.txt | sort -n | head -n 5
+~~~
+
+~~~
+ 240 NENE02018B.txt
+ 300 NENE01729A.txt
+ 300 NENE01729B.txt
+ 300 NENE01736A.txt
+ 300 NENE01751A.txt
+~~~
+
+Whoops: one of the files is 60 lines shorter than the others.
+When she goes back and checks it,
+she sees that she did that assay at 8:00 on a Monday morning --- someone
+was probably in using the machine on the weekend,
+and she forgot to reset it.
+Before re-running that sample,
+she checks to see if any files have too much data:
+
+~~~
+$ wc -l *.txt | sort -n | tail -n 5
+~~~
+
+
+~~~
+ 300 NENE02040B.txt
+ 300 NENE02040Z.txt
+ 300 NENE02043A.txt
+ 300 NENE02043B.txt
+5040 total
+~~~
+
+
+Those numbers look good --- but what's that 'Z' doing there in the third-to-last line?
+All of her samples should be marked 'A' or 'B';
+by convention,
+her lab uses 'Z' to indicate samples with missing information.
+To find others like it, she does this:
+
+~~~
+$ ls *Z.txt
+~~~
+
+~~~
+NENE01971Z.txt    NENE02040Z.txt
+~~~
+
+Sure enough,
+when she checks the log on her laptop,
+there's no depth recorded for either of those samples.
+Since it's too late to get the information any other way,
+she must exclude those two files from her analysis.
+She could just delete them using `rm`,
+but there are actually some analyses she might do later where depth doesn't matter,
+so instead, she'll just be careful later on to select files using the wildcard expression `*[AB].txt`.
+As always,
+the `*` matches any number of characters;
+the expression `[AB]` matches either an 'A' or a 'B',
+so this matches all the valid data files she has.
+
+
