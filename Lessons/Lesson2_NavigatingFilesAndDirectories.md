@@ -1,7 +1,5 @@
 # Navigating Files and Directories
 
-
-
 The part of the operating system responsible for managing files and directories is called the **file system**. It organizes our data into files, which hold information, and directories (also called "folders"), which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
@@ -59,8 +57,8 @@ On Nelle's computer, the filesystem looks like this:
 <p align="center">
 <kbd>
   <img src="../Images/directory.png"/>
- </kbd>
- </p>
+</kbd>
+</p>
 
 At the top is the **root directory** that holds everything else. We refer to it using a slash character `/` on its own.
 
@@ -461,4 +459,4 @@ Starting from `/Users/amanda/data/`, which of the following commands could Amand
   8. Yes: shortcut to go back to the user's home directory.
   9. Yes: goes up one level.
 
-[Next: Lesson 3 - Working With Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson3_WorkingWithFilesAndDirectories.md)
+[Next: Lesson 3 - Working With Files and Directories](https://github.com/MaineINBRE/IntroToShell/blob/master/Lessons/Lesson3_WorkingWithFilesAndDirectories.md)

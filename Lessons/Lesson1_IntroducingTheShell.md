@@ -2,7 +2,7 @@
 
 <p align="center">
 <kbd>
-  <img src="https://github.com/kylescotshank/IntroToShell/blob/master/Images/ItsAUnixSystem.jpg"/>
+  <img src="https://github.com/MaineINBRE/IntroToShell/blob/master/Images/ItsAUnixSystem.jpg"/>
  </kbd>
  </p>
  <p align="center"
@@ -138,4 +138,4 @@ she will be able to use it again whenever she collects more data.
   2. The shell’s main advantages are its high action-to-keystroke ratio, its support for automating repetitive tasks, and that it can be used to access networked machines.
   3. The shell’s main disadvantages are its primarily textual nature and how cryptic its commands and operation can be.
 
-[Next: Lesson 2 - Navigating Files and Directories](https://github.com/kylescotshank/IntroToShell/blob/master/Lessons/Lesson2_NavigatingFilesAndDirectories.md)
+[Next: Lesson 2 - Navigating Files and Directories](https://github.com/MaineINBRE/IntroToShell/blob/master/Lessons/Lesson2_NavigatingFilesAndDirectories.md)
